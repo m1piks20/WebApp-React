@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 import './PagesStyle.css';
 
 function fillOptions(fillFunction) {
@@ -32,6 +34,49 @@ function fillYears() {
 }
 
 function MemoryPage() {
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true); // начинаем загрузку
+        try {
+            let data = {
+                "model": "gpt-3.5-turbo",
+                "messages": [
+                    {"role": "system", "content": "Вы писатель и пишете эпитафию об умершем человеке. Я даю вам исходные данные. Проанализируйте их и напишите текст"},
+                    {"role": "user", "content": `Имя человека - ${formData.fio}. Он родился ${formData.birthDayOptions} и умер ${formData.deathDayOptions}. Ему нравились такие хобби, как ${formData.hobbies}. По характеру был ${formData.character}. Он работал ${formData.work}.`},
+                    {"role": "system", "content": "Напишите эпитафию о человеке, используя полученные данные"}
+                ],
+                "max_tokens": 4096,
+                "temperature": 0.7,
+                "top_p": 0.9,
+                "top_k": 0,
+                "repetition_penalty": 1,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+
+            }
+
+            const response = await fetch('https://api.visioncraft.top/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer 54bdfe91-eb76-47c0-a156-6fc9dd2f7db2'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            localStorage.setItem('epitaffioText', result.choices[0].message.content);
+            setIsLoading(false); // заканчиваем загрузку
+            navigate('/AddedEpitaphs', { state: { apiResponse: result.choices[0].message.content } }); // переходим на страницу AddedEpitaphs
+        } catch (error) {
+            setIsLoading(false); // в случае ошибки также заканчиваем загрузку
+            console.error('Ошибка:', error);
+        }
+    };
+
     const [formData, setFormData] = useState({
         fio: '',
         birthDay: '',
@@ -44,6 +89,7 @@ function MemoryPage() {
         character: '',
         work: ''
     });
+
 
     useEffect(() => {
         setFormData((prevData) => ({
@@ -63,46 +109,6 @@ function MemoryPage() {
     };
 
 
-
-
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        try {
-            document.getElementById('loadingScreen').style.display = 'block';
-            document.getElementById('loadingBox').style.display = 'block';
-
-            const data = {
-                "model": "gpt-4",
-                "messages": [
-                    {"role": "system", "content": "Вы писатель и пишете эпитафию об умершем человеке. Я даю вам исходные данные. Проанализируйте их и напишите текст"},
-                    {"role": "user", "content": `Имя человека - ${formData.fio}. Он родился ${formData.birthDate} и умер ${formData.deathDate}. Ему нравились такие хобби, как ${formData.questions.hobbies}. По характеру был ${formData.questions.character}. Он работал ${formData.questions.work}.`},
-                    {"role": "system", "content": "Напишите эпитафию о человеке, используя полученные данные"}
-                ],
-                "max_tokens": 4096,
-                "temperature": 0.7,
-                "top_p": 0.9,
-                "top_k": 0,
-                "repetition_penalty": 1,
-                "presence_penalty": 0,
-                "frequency_penalty": 0,
-            };
-
-            const response = await fetch('Token', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 54bdfe91-eb76-47c0-a156-6fc9dd2f7db2'
-                },
-                body: JSON.stringify(data)
-            });
-
-        } catch (error) {
-            console.error('Ошибка:', error);
-
-        }
-    };
 
     return (
         <div className="container">
@@ -159,8 +165,8 @@ function MemoryPage() {
                 <br/>
                 <button type="submit">Далее</button>
             </form>
-            <div id="loadingBox" style={{display: 'none'}}></div>
-            <div id="loadingScreen" style={{display: 'none'}}></div>
+            <div id="loadingBox" style={{display: isLoading ? 'block' : 'none'}}></div>
+            <div id="loadingScreen" style={{display: isLoading ? 'block' : 'none'}}></div>
         </div>
     );
 }
