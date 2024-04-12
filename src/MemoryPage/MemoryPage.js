@@ -108,7 +108,11 @@ function MemoryPage() {
         setFormData({ ...formData, [name]: value });
     };
 
+    const [selectedFile, setSelectedFile] = useState(null);
 
+    const handleFileChange = (e) => {
+        setSelectedFile(e.target.files[0].name);
+    };
 
     return (
         <div className="container">
@@ -117,9 +121,6 @@ function MemoryPage() {
             </div>
             <hr style={{ border: '1px solid #3d4754', width: '390px', height: '0px' }} />
             <form onSubmit={handleSubmit} id="dateForm">
-
-                <input type="file" name="photo" accept="image/*"/>
-                <br/><br/>
 
                 <label htmlFor="fio" className="fio">ФИО</label>
                 <br/>
@@ -166,8 +167,17 @@ function MemoryPage() {
                 <br/>
                 <input type="text" id="work" name="work" placeholder="Завод, офис, зал" autoComplete="off" required
                        onChange={handleChange} value={formData.work}/>
+
                 <br/>
-                <button type="submit">Далее</button>
+
+                <div className="upload-submit-container">
+                    <label htmlFor="file-upload" className="custom-file-upload">
+                        Выберите файл
+                    </label>
+                    <input id="file-upload" type="file" accept="image/*" onChange={handleFileChange}/>
+                    <p>{selectedFile}</p>
+                    <button type="submit">Далее</button>
+                </div>
             </form>
             <div id="loadingBox" style={{display: isLoading ? 'block' : 'none'}}></div>
             <div id="loadingScreen" style={{display: isLoading ? 'block' : 'none'}}></div>

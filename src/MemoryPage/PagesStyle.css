@@ -122,6 +122,42 @@ select{
     color: white;
 }
 
+/* Скрываем оригинальный input[type="file"] */
+input[type="file"] {
+    display: none;
+}
+
+/* Создаем собственный элемент для представления input[type="file"] */
+.custom-file-upload {
+    color: #fff;
+    font-weight: 700;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    width: 96px;
+    height: 38px;
+    background: #1a80e5;
+    border: 1px solid #1a80e5;
+    transition: background-color 0.2s linear;
+    cursor: pointer;
+    overflow: hidden;
+    margin-left: 5px;
+
+
+}
+
+.custom-file-upload:hover {
+    background-color: rgb(0, 16, 87);
+}
+
+.upload-submit-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 button{
     color: #fff;
     font-weight: 700;
