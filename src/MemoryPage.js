@@ -149,7 +149,7 @@ function MemoryPage() {
                 <br/>
                 <label htmlFor="character" className="character">Характер</label>
                 <br/>
-                <input type="text" id="character" name="character" placeholder="Флегматик, халерик" autoComplete="off"
+                <input type="text" id="character" name="character" placeholder="Флегматик, холерик" autoComplete="off"
                        required onChange={handleChange} value={formData.character}/>
                 <br/>
                 <label htmlFor="work" className="work">Место работы</label>
