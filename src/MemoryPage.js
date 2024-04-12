@@ -89,7 +89,7 @@ function MemoryPage() {
                 "frequency_penalty": 0,
             };
 
-            const response = await fetch('https://api.visioncraft.top/v1/chat/completions', {
+            const response = await fetch('Token', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
