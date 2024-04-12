@@ -117,6 +117,10 @@ function MemoryPage() {
             </div>
             <hr style={{ border: '1px solid #3d4754', width: '390px', height: '0px' }} />
             <form onSubmit={handleSubmit} id="dateForm">
+
+                <input type="file" name="photo" accept="image/*"/>
+                <br/><br/>
+
                 <label htmlFor="fio" className="fio">ФИО</label>
                 <br/>
                 <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" autoComplete="off" required
