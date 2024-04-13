@@ -6,34 +6,53 @@ import defaultAvatar from './img/avatar.png';
 import {useTranslation} from "react-i18next";
 
 
-function fillDays() {
-    let options = '<option value="" disabled selected>День</option>';
-    for (let i = 1; i <= 31; i++) {
-        options += `<option className="white" value="${i}">${i}</option>`;
-    }
-    return options;
-}
-
-function fillMonths() {
-    let options = '<option value="" disabled selected>Месяц</option>';
-    const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-    months.forEach((month, index) => {
-        options += `<option className="white" value="${index + 1}">${month}</option>`;
-    });
-    return options;
-}
-
-function fillYears() {
-    let date = new Date().getFullYear()
-    let options = '<option value="" disabled selected>Год</option>';
-    for (let i = date; i >= 1724; i--) {
-        options += `<option className ="white" value="${i}">${i}</option>`;
-    }
-    return options;
-}
-
 function MemoryPage() {
+
     const {t, i18n} = useTranslation();
+
+    function FillDays() {
+
+        var options = `<option value="" disabled selected>${t("placeholders.day")}</option>`;
+
+        for (let i = 1; i <= 31; i++) {
+            options += `<option className="white" value="${i}">${i}</option>`;
+        }
+        return options;
+    }
+
+    function FillMonths() {
+
+        let options = `<option value="" disabled selected>${t("placeholders.month")}</option>`;
+        const months = [
+            t("placeholders.jan"),
+            t("placeholders.feb"),
+            t("placeholders.mar"),
+            t("placeholders.apr"),
+            t("placeholders.may"),
+            t("placeholders.jun"),
+            t("placeholders.jul"),
+            t("placeholders.aug"),
+            t("placeholders.sep"),
+            t("placeholders.oct"),
+            t("placeholders.nov"),
+            t("placeholders.dec")
+        ]
+        months.forEach((month, index) => {
+            options += `<option className="white" value="${index + 1}">${month}</option>`;
+        });
+        return options;
+    }
+
+    function FillYears() {
+
+        let date = new Date().getFullYear()
+        let options = `<option value="" disabled selected>${t("placeholders.year")}</option>`;
+        for (let i = date; i >= 1724; i--) {
+            options += `<option className ="white" value="${i}">${i}</option>`;
+        }
+        return options;
+    }
+
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -67,12 +86,12 @@ function MemoryPage() {
     useEffect(() => {
         setFormData((prevData) => ({
             ...prevData,
-            birthDayOptions: fillDays(),
-            birthMonthOptions: fillMonths(),
-            birthYearOptions: fillYears(),
-            deathDayOptions: fillDays(),
-            deathMonthOptions: fillMonths(),
-            deathYearOptions: fillYears(),
+            birthDayOptions: FillDays(),
+            birthMonthOptions: FillMonths(),
+            birthYearOptions: FillYears(),
+            deathDayOptions: FillDays(),
+            deathMonthOptions: FillMonths(),
+            deathYearOptions: FillYears(),
         }));
     }, []);
 
