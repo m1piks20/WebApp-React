@@ -9,16 +9,8 @@ function MemoryBio() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        fio: '',
-        birthDay: '',
-        birthMonth: '',
-        birthYear: '',
-        deathDay: '',
-        deathMonth: '',
-        deathYear: '',
-        hobbies: '',
-        character: '',
-        work: ''
+        introduction: '',
+        introductionText: '',
     });
 
     useEffect(() => {
@@ -61,25 +53,30 @@ function MemoryBio() {
 
             <form onSubmit={handleSubmit} id="dateForm">
 
-                <label htmlFor="hobbies" className="hobbies">Заголовок вступления</label>
+                <label htmlFor="introduction" className="introduction">Заголовок вступления</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="Давным-давно на полянке..."
-                       value={formData.hobbies}
+                <input className="introduction" type="text" id="introduction" name="introduction" placeholder="Давным-давно на полянке..."
+                       value={formData.introduction}
                        onChange={handleChange}
                        autoComplete="off"/>
 
                 <br/>
 
-                <label htmlFor="hobbies" className="hobbies">Текст вступления</label>
+                <label htmlFor="introductionText" className="introductionText">Текст вступления</label>
                 <br/>
-                <input type="text" id="TextStart" name="hobbies" placeholder="Хз че писать тут..." autoComplete="off"
-                       value={formData.hobbies}
-                       onChange={handleChange}
-                />
+                <div className="introductionTextContainer">
+                    <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
+                              placeholder="Хз че писать тут..." autoComplete="off"
+                              value={formData.introductionText}
+                              onChange={handleChange}
+                    />
 
-                <button className="Neuro">
-                    <img className="ico" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
-                </button>
+                    <button className="neuro">
+                        <img className="ico" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
+                    </button>
+
+                </div>
+
 
                 <br/>
                 <br/>
