@@ -134,6 +134,8 @@ button{
     background: #1a80e5;
     border: 1px solid #1a80e5;
 
+    margin-bottom: 15px;
+
     transition: background-color 0.2s linear;
 }
 

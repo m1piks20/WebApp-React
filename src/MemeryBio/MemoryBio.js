@@ -83,7 +83,6 @@ function MemoryBio() {
 
                 <div className="upload-submit-container">
                     <button type="submit">Далее</button>
-
                     <button>Перейти к написанию эпитафии</button>
                 </div>
 
