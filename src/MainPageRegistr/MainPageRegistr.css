@@ -92,7 +92,7 @@ body {
 .btn-create{
     position: absolute; /* Позиционируем кнопку абсолютно */
     right: 15.5px; /* Отступ справа */
-    bottom: 0; /* Отступ снизу */
+    bottom: 10px; /* Отступ снизу */
 
     display: flex;
     justify-content: center;
