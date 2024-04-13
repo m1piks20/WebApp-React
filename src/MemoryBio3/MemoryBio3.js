@@ -72,7 +72,7 @@ function MemoryBio3() {
 
                 <label htmlFor="hobbies" className="hobbies">Текст 3 части</label>
                 <br/>
-                <input type="text" id="TextStart" name="hobbies" placeholder="не знаю че писать тут..."
+                <input type="text" id="TextStart" name="hobbies" placeholder="Хз че писать тут..."
                        autoComplete="off"
                        value={formData.hobbies}
                        onChange={handleChange}

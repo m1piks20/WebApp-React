@@ -138,6 +138,8 @@ textarea[class="introductionText"]::placeholder {
 }
 
 .ico{
+    display: block;
+    margin: 0 auto;
     width: 29px;
     height: 30px;
 }

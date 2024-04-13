@@ -63,15 +63,18 @@ function MemoryBioEnd() {
 
                 <label htmlFor="hobbies" className="hobbies">Текст заключения</label>
                 <br/>
-                <input type="text" id="TextStart" name="hobbies" placeholder="не знаю че писать тут..."
-                       autoComplete="off"
-                       value={formData.hobbies}
-                       onChange={handleChange}
-                />
+                <div className="introductionTextContainer">
+                    <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
+                              placeholder="Не знаю что писать тут..." autoComplete="off"
+                              value={formData.introductionText}
+                              onChange={handleChange}
+                    />
 
-                <button className="NeuroEnd">
-                    <img className="icoEnd" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
-                </button>
+                    <button className="neuro">
+                        <img className="ico" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
+                    </button>
+
+                </div>
 
                 <br/>
 

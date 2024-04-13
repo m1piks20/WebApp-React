@@ -56,23 +56,4 @@ body {
 
 
 
-#TextStart{
-    position: relative;
-    width: 354px;
-    height: 347px;
-}
-
-#Bio{
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 161%;
-    letter-spacing: -0.02em;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-right: 50px;
-}
 
