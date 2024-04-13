@@ -9,16 +9,11 @@ function MemoryPage2() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        fio: '',
-        birthDay: '',
-        birthMonth: '',
-        birthYear: '',
-        deathDay: '',
-        deathMonth: '',
-        deathYear: '',
-        hobbies: '',
-        character: '',
-        work: ''
+        placeBirth: '',
+        placeDeath: '',
+        typeOfActivity: '',
+        awards: '',
+        hobbies: ''
     });
 
     useEffect(() => {
@@ -56,45 +51,45 @@ function MemoryPage2() {
 
             <form onSubmit={handleSubmit} id="dateForm">
 
-                <label htmlFor="hobbies" className="hobbies">Место рождения</label>
+                <label htmlFor="placeBirth" className="placeBirth">Место рождения</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="Санкт-Петербург, Россия" autoComplete="off"
+                <input type="text" id="placeBirth" name="placeBirth" placeholder="Санкт-Петербург, Россия" autoComplete="off"
                        required onChange={handleChange}
-                       value={formData.hobbies}/>
+                       value={formData.placeBirth}/>
 
                 <br/>
 
-                <label htmlFor="character" className="character">Место смерти</label>
+                <label htmlFor="placeDeath" className="placeDeath">Место смерти</label>
                 <br/>
-                <input type="text" id="character" name="character" placeholder="Балашиха, Россия" autoComplete="off"
+                <input type="text" id="placeDeath" name="placeDeath" placeholder="Балашиха, Россия" autoComplete="off"
                        required onChange={handleChange}
-                       value={formData.character}/>
+                       value={formData.placeDeath}/>
 
                 <br/>
 
-                <label htmlFor="work" className="work">Род деятельности</label>
+                <label htmlFor="typeOfActivity" className="typeOfActivity">Род деятельности</label>
                 <br/>
-                <input type="text" id="work" name="work" placeholder="Актёр,  танцор, хореограф" autoComplete="off"
+                <input type="text" id="typeOfActivity" name="typeOfActivity" placeholder="Актёр,  танцор, хореограф" autoComplete="off"
                        required
                     onChange={handleChange}
-                       value={formData.work}/>
+                       value={formData.typeOfActivity}/>
                 <br/>
-                <label htmlFor="work" className="work">Награды, премии и достижения</label>
+                <label htmlFor="awards" className="awards">Награды, премии и достижения</label>
                 <br/>
-                <input type="text" id="work" name="work" placeholder="Заслуженный артист деревни Терелесово"
+                <input type="text" id="awards" name="awards" placeholder="Заслуженный артист деревни Терелесово"
                        autoComplete="off"
                        required
                     onChange={handleChange}
-                       value={formData.work}/>
+                       value={formData.awards}/>
 
                 <br/>
 
-                <label htmlFor="work" className="work">Хобби и увлечения</label>
+                <label htmlFor="hobbies" className="hobbies">Хобби и увлечения</label>
                 <br/>
-                <input type="text" id="work" name="work" placeholder="Плавание, игра на гитаре" autoComplete="off"
+                <input type="text" id="hobbies" name="hobbies" placeholder="Плавание, игра на гитаре" autoComplete="off"
                        required
                     onChange={handleChange}
-                       value={formData.work}/>
+                       value={formData.hobbies}/>
 
                 <br/>
                 <br/>
