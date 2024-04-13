@@ -62,7 +62,7 @@ function MemoryBio2() {
 
                     <br/>
 
-                    <label htmlFor="introductionText" className="introductionText">Текст 2 часть</label>
+                    <label htmlFor="introductionText" className="introductionText">Текст 2 части</label>
                     <br/>
                     <div className="introductionTextContainer">
                     <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
