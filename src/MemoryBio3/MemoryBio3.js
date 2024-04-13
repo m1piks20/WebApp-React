@@ -64,7 +64,7 @@ function MemoryBio3() {
                 <label htmlFor="headerBio3" className="headerBio3">Заголовок 3 части</label>
                 <br/>
                 <input className="headerBio3" type="text" id="headerBio3" name="headerBio3" placeholder="Давным-давно на полянке..."
-                       value={formData.hobbies}
+                       value={formData.headerBio3}
                        onChange={handleChange}
                        autoComplete="off"/>
 
@@ -73,7 +73,7 @@ function MemoryBio3() {
                 <label htmlFor="hobbies" className="hobbies">Текст 3 части</label>
                 <br/>
                 <div className="introductionTextContainer">
-                    <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
+                    <textarea className="introductionText" type="text" id="introductionText" name="introductionText"
                               placeholder="Хз че писать тут..." autoComplete="off"
                               value={formData.introductionText}
                               onChange={handleChange}
