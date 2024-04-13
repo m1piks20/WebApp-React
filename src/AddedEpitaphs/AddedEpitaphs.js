@@ -46,7 +46,7 @@ function AddedEpitaphs() {
                 </div>
                     <br/>
 
-                    <label htmlFor="fio" className="fio">Автор эпитавии</label>
+                    <label htmlFor="fio" className="fio">Автор эпитафии</label>
                     <br/>
                     <input className="fio" type="text" id="fio" name="fio" placeholder="Хулиган Пашок"
                            autoComplete="off"
