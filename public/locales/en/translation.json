@@ -1,0 +1,93 @@
+{
+  "greetings": {
+    "morn": "Good morning",
+    "day": "Good day",
+    "even": "Good evening",
+    "night": "Good night"
+  },
+  "main": {
+    "no_pages": "You haven't added any memory pages yet",
+    "create_page": "Create a new memory page",
+    "next": "Next",
+    "ep": "Epitaph",
+    "ep_aut": "Author of the epitaph",
+    "ep_aut_txt": "Ivan Andreevich",
+    "goto_epitaph": "Go to writing the epitaph",
+    "ex_ep": "Alexander Alexandrovich will forever remain in our hearts. He was a kind, caring person. A faithful husband, loving father, good son - all this describes Alexander. All his life he tried to act according to his conscience and taught everyone not to despair even in difficult situations. He is watching us now and believes that everything will be fine!",
+    "add_page": "Add a page"
+  },
+  "header": {
+    "create_page": "Adding a new memory page"
+  },
+  "placeholders": {
+    "fio": "Ivanov Ivan Ivanovich",
+    "day": "Day",
+    "month": "Month",
+    "year": "Year",
+    "jan": "January",
+    "feb": "February",
+    "mar": "March",
+    "apr": "April",
+    "may": "May",
+    "jun": "June",
+    "jul": "July",
+    "aug": "August",
+    "sep": "September",
+    "oct": "October",
+    "nov": "November",
+    "dec": "December"
+  },
+  "gpt": {
+    "answer": "Answer to the question"
+  },
+  "bio": {
+    "tom": {
+      "fst": "Biography. Part 1.",
+      "sec": "Biography. Part 2.",
+      "thr": "Biography. Part 3.",
+      "frt": "Biography. Conclusion"
+    },
+    "header": {
+      "fst": "Introduction header",
+      "sec": "Header of part 2",
+      "thr": "Header of part 3",
+      "placeholder": {
+        "fst": "Enter text",
+        "sec": "Enter text",
+        "thr": "Enter text",
+        "frt": "Enter text"
+      }
+    },
+    "text": {
+      "fst": "Introduction text",
+      "sec": "Text of part 2",
+      "thr": "Text of part 3",
+      "frt": "Conclusion text",
+      "placeholder": {
+        "fst": "Enter text",
+        "sec": "Enter text",
+        "thr": "Enter text",
+        "frt": "Enter text"
+      }
+    }
+  },
+  "req_info": {
+    "main_photo": "Main photo of the page",
+    "upload_photo": "Upload photo",
+    "fio": "Full Name",
+    "birthDate": "Date of Birth",
+    "diedDate": "Date of Death",
+    "placeBirth": "Place of Birth",
+    "placeDeath": "Place of Death",
+    "work": "Workplace",
+    "awards": "Awards and Achievements",
+    "hobbies": "Hobbies and Interests",
+    "additional": {
+      "placeBirth": "Saint Petersburg, Russia",
+      "placeDeath": "Moscow, Russia",
+      "work": "ISPO SPbPU",
+      "awards": "Honored Artist of the Russian Federation",
+      "hobbies": "Playing the guitar"
+    }
+  }
+}

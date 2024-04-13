@@ -1,0 +1,93 @@
+{
+  "greetings": {
+    "morn": "Buongiorno",
+    "day": "Buon giorno",
+    "even": "Buonasera",
+    "night": "Buona notte"
+  },
+  "main": {
+    "no_pages": "Non hai ancora aggiunto pagine di memoria",
+    "create_page": "Creare una nuova pagina di memoria",
+    "next": "Avanti",
+    "ep": "Epitaffio",
+    "ep_aut": "Autore dell'epitaffio",
+    "ep_aut_txt": "Ivan Andreevich",
+    "goto_epitaph": "Passa alla scrittura dell'epitaffio",
+    "ex_ep": "Alexander Alexandrovich rimarrà per sempre nei nostri cuori. Era una persona gentile e premurosa. Un marito fedele, un padre amorevole, un buon figlio - tutto questo riguarda Alexander. Per tutta la vita ha cercato di agire secondo la propria coscienza e ha insegnato a tutti a non disperare nemmeno nelle situazioni difficili. Ci sta guardando ora e crede che tutto andrà bene!",
+    "add_page": "Aggiungi una pagina"
+  },
+  "header": {
+    "create_page": "Aggiunta di una nuova pagina di memoria"
+  },
+  "placeholders": {
+    "fio": "Ivanov Ivan Ivanovich",
+    "day": "Giorno",
+    "month": "Mese",
+    "year": "Anno",
+    "jan": "Gennaio",
+    "feb": "Febbraio",
+    "mar": "Marzo",
+    "apr": "Aprile",
+    "may": "Maggio",
+    "jun": "Giugno",
+    "jul": "Luglio",
+    "aug": "Agosto",
+    "sep": "Settembre",
+    "oct": "Ottobre",
+    "nov": "Novembre",
+    "dec": "Dicembre"
+  },
+  "gpt": {
+    "answer": "Risposta alla domanda"
+  },
+  "bio": {
+    "tom": {
+      "fst": "Biografia. Parte 1.",
+      "sec": "Biografia. Parte 2.",
+      "thr": "Biografia. Parte 3.",
+      "frt": "Biografia. Conclusione"
+    },
+    "header": {
+      "fst": "Intestazione introduzione",
+      "sec": "Intestazione della parte 2",
+      "thr": "Intestazione della parte 3",
+      "placeholder": {
+        "fst": "Inserisci testo",
+        "sec": "Inserisci testo",
+        "thr": "Inserisci testo",
+        "frt": "Inserisci testo"
+      }
+    },
+    "text": {
+      "fst": "Testo dell'introduzione",
+      "sec": "Testo della parte 2",
+      "thr": "Testo della parte 3",
+      "frt": "Testo della conclusione",
+      "placeholder": {
+        "fst": "Inserisci testo",
+        "sec": "Inserisci testo",
+        "thr": "Inserisci testo",
+        "frt": "Inserisci testo"
+      }
+    }
+  },
+  "req_info": {
+    "main_photo": "Foto principale della pagina",
+    "upload_photo": "Carica foto",
+    "fio": "Nome completo",
+    "birthDate": "Data di nascita",
+    "diedDate": "Data di morte",
+    "placeBirth": "Luogo di nascita",
+    "placeDeath": "Luogo di morte",
+    "work": "Luogo di lavoro",
+    "awards": "Premi e realizzazioni",
+    "hobbies": "Hobby e interessi",
+    "additional": {
+      "placeBirth": "San Pietroburgo, Russia",
+      "placeDeath": "Mosca, Russia",
+      "work": "ISPO SPbPU",
+      "awards": "Artista onorato della Federazione Russa",
+      "hobbies": "Suonare la chitarra"
+    }
+  }
+}
