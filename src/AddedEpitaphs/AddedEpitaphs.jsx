@@ -39,7 +39,14 @@ function AddedEpitaphs() {
                     required
                 />
                 <br />
-                <button type="submit">Далее</button>
+
+                <label htmlFor="fio" className="fio">Автор эпитавии</label>
+                <br/>
+                <input type="text" id="fio" name="fio" placeholder="Хулиган Пашок" autoComplete="off" required/>
+
+                <br/>
+
+                <button type="submit">Добавить страницу</button>
             </form>
         </div>
     );
