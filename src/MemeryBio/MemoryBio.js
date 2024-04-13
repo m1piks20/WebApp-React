@@ -66,7 +66,7 @@ function MemoryBio() {
                 <br/>
                 <div className="introductionTextContainer">
                     <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
-                              placeholder="Не знаю че писать тут..." autoComplete="off"
+                              placeholder="Хз че писать тут..." autoComplete="off"
                               value={formData.introductionText}
                               onChange={handleChange}
                     />
