@@ -49,7 +49,7 @@ textarea[class="introductionText"]{
 }
 
 textarea[class="introductionText"]::placeholder {
-
+    color: #293038;
     left: 6px;
     top: 6px;
 }
@@ -60,6 +60,8 @@ textarea[class="introductionText"]::placeholder {
     width: 354px;
     height: 347px;
 }
+
+
 
 .introductionTextContainer {
     position: relative;

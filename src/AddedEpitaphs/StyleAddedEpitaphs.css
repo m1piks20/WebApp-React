@@ -25,6 +25,7 @@ textarea[class="epitaffioText"]{
 
 textarea[class="epitaffioText"]::placeholder {
     position: absolute;
+    color: #293038;
     left: 6px;
     top: 6px;
 }
