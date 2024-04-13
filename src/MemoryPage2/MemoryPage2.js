@@ -53,7 +53,8 @@ function MemoryPage2() {
 
                 <label htmlFor="placeBirth" className="placeBirth">Место рождения</label>
                 <br/>
-                <input type="text" id="placeBirth" name="placeBirth" placeholder="Санкт-Петербург, Россия" autoComplete="off"
+                <input className="placeBirth" type="text" id="placeBirth" name="placeBirth"
+                       placeholder="Санкт-Петербург, Россия" autoComplete="off"
                        required onChange={handleChange}
                        value={formData.placeBirth}/>
 
@@ -61,7 +62,8 @@ function MemoryPage2() {
 
                 <label htmlFor="placeDeath" className="placeDeath">Место смерти</label>
                 <br/>
-                <input type="text" id="placeDeath" name="placeDeath" placeholder="Балашиха, Россия" autoComplete="off"
+                <input className="placeDeath" type="text" id="placeDeath" name="placeDeath"
+                       placeholder="Балашиха, Россия" autoComplete="off"
                        required onChange={handleChange}
                        value={formData.placeDeath}/>
 
@@ -69,26 +71,29 @@ function MemoryPage2() {
 
                 <label htmlFor="typeOfActivity" className="typeOfActivity">Род деятельности</label>
                 <br/>
-                <input type="text" id="typeOfActivity" name="typeOfActivity" placeholder="Актёр,  танцор, хореограф" autoComplete="off"
+                <input className="typeOfActivity" type="text" id="typeOfActivity" name="typeOfActivity"
+                       placeholder="Актёр,  танцор, хореограф" autoComplete="off"
                        required
-                    onChange={handleChange}
+                       onChange={handleChange}
                        value={formData.typeOfActivity}/>
                 <br/>
                 <label htmlFor="awards" className="awards">Награды, премии и достижения</label>
                 <br/>
-                <input type="text" id="awards" name="awards" placeholder="Заслуженный артист деревни Терелесово"
+                <input className="awards" type="text" id="awards" name="awards"
+                       placeholder="Заслуженный артист деревни Терелесово"
                        autoComplete="off"
                        required
-                    onChange={handleChange}
+                       onChange={handleChange}
                        value={formData.awards}/>
 
                 <br/>
 
                 <label htmlFor="hobbies" className="hobbies">Хобби и увлечения</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="Плавание, игра на гитаре" autoComplete="off"
+                <input className="hobbies" type="text" id="hobbies" name="hobbies"
+                       placeholder="Плавание, игра на гитаре" autoComplete="off"
                        required
-                    onChange={handleChange}
+                       onChange={handleChange}
                        value={formData.hobbies}/>
 
                 <br/>

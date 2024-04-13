@@ -23,11 +23,6 @@ body {
     overflow-x: hidden;
 }
 
-.container {
-    width: 390px;
-    margin: 20px auto;
-}
-
 .header {
     padding: 20px 20px 0;
 }

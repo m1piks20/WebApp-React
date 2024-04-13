@@ -34,7 +34,7 @@ body {
     padding: 10px 10px 10px 5px;
 }
 
-.fio, .birthDay, .birthMonth, .birthYear, .hobbies, .epitaffio{
+.fio, .birthDay, .birthMonth, .birthYear{
     padding: 10px 10px 8px 10px;
     font-family: var(--font-family);
     font-weight: 700;
@@ -64,9 +64,7 @@ body {
     border-radius: 50%;
 }
 
-input{
-    margin-left: 100px;
-}
+
 
 input::placeholder {
     color: #293038;
