@@ -61,9 +61,9 @@ function MemoryBio3() {
 
             <form onSubmit={handleSubmit} id="dateForm">
 
-                <label htmlFor="hobbies" className="hobbies">Заголовок 3 части</label>
+                <label htmlFor="headerBio3" className="headerBio3">Заголовок 3 части</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="Давным-давно на полянке..."
+                <input className="headerBio3" type="text" id="headerBio3" name="headerBio3" placeholder="Давным-давно на полянке..."
                        value={formData.hobbies}
                        onChange={handleChange}
                        autoComplete="off"/>
@@ -72,15 +72,18 @@ function MemoryBio3() {
 
                 <label htmlFor="hobbies" className="hobbies">Текст 3 части</label>
                 <br/>
-                <input type="text" id="TextStart" name="hobbies" placeholder="Хз че писать тут..."
-                       autoComplete="off"
-                       value={formData.hobbies}
-                       onChange={handleChange}
-                />
+                <div className="introductionTextContainer">
+                    <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
+                              placeholder="Хз че писать тут..." autoComplete="off"
+                              value={formData.introductionText}
+                              onChange={handleChange}
+                    />
 
-                <button className="Neuro">
-                    <img className="ico" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
-                </button>
+                    <button className="neuro">
+                        <img className="ico" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
+                    </button>
+
+                </div>
 
                 <br/>
                 <br/>
