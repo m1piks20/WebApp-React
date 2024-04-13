@@ -37,7 +37,7 @@ function MemoryBio2() {
         // Ваш код обработки формы
         // ...
         // Переход на страницу MemoryPage3
-        navigate('/MemoryBio3');
+        //navigate('/MemoryBio3');
     }
 
 

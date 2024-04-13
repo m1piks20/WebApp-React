@@ -45,7 +45,7 @@ function MemoryBioEnd() {
         // Ваш код обработки формы
         // ...
         // Переход на страницу MemoryPage3
-        navigate('/AddedEpitaphs');
+        //navigate('/AddedEpitaphs');
     }
 
 
