@@ -25,8 +25,8 @@ function fillMonths() {
 function fillYears() {
     let date = new Date().getFullYear()
     let options = '<option value="" disabled selected>Год</option>';
-    for (let i = date; i >= 1900; i--) {
-        options += `<option className ="bel" value="${i}">${i}</option>`;
+    for (let i = date; i >= 1724; i--) {
+        options += `<option className ="white" value="${i}">${i}</option>`;
     }
     return options;
 }
@@ -80,6 +80,7 @@ function MemoryPage() {
             alert('Год рождения не может быть больше года смерти');
         } else if (name === 'deathYear' && formData.birthYear && value < formData.birthYear) {
             alert('Год смерти не может быть меньше года рождения');
+            e.target.value = ''; // Сброс значения поля
         } else {
             setFormData({ ...formData, [name]: value });
             e.target.style.color = value ? '#fff' : '#293038'; // Изменение цвета текста
