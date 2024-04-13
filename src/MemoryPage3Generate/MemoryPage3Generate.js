@@ -8,16 +8,12 @@ function MemoryPage3Generate() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        fio: '',
-        birthDay: '',
-        birthMonth: '',
-        birthYear: '',
-        deathDay: '',
-        deathMonth: '',
-        deathYear: '',
-        hobbies: '',
-        character: '',
-        work: ''
+        gen1: '',
+        gen2: '',
+        gen3: '',
+        gen4: '',
+        gen5: ''
+
     });
 
     useEffect(() => {
@@ -55,43 +51,43 @@ function MemoryPage3Generate() {
 
             <form onSubmit={handleSubmit} id="dateForm">
 
-                <label htmlFor="hobbies" className="hobbies">IDK</label>
+                <label htmlFor="gen1" className="gen">IDK</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen1" name="gen1" placeholder="idk" autoComplete="off"
                        required onChange={handleChange}
-                       value={formData.hobbies}/>
+                       value={formData.gen1}/>
 
                 <br/>
 
-                <label htmlFor="hobbies" className="hobbies">IDK</label>
+                <label htmlFor="gen2" className="gen">IDK</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen2" name="gen2" placeholder="idk" autoComplete="off"
                        required onChange={handleChange}
-                       value={formData.hobbies}/>
+                       value={formData.gen2}/>
 
                 <br/>
 
-                <label htmlFor="hobbies" className="hobbies">IDK</label>
+                <label htmlFor="gen3" className="gen">IDK</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen3" name="gen3" placeholder="idk" autoComplete="off"
                        required onChange={handleChange}
-                       value={formData.hobbies}/>
+                       value={formData.gen3}/>
 
                 <br/>
 
-                <label htmlFor="hobbies" className="hobbies">IDK</label>
+                <label htmlFor="gen4" className="gen">IDK</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen4" name="gen4" placeholder="idk" autoComplete="off"
                        required onChange={handleChange}
-                       value={formData.hobbies}/>
+                       value={formData.gen4}/>
 
                 <br/>
 
-                <label htmlFor="hobbies" className="hobbies">IDK</label>
+                <label htmlFor="gen5" className="gen">IDK</label>
                 <br/>
-                <input type="text" id="hobbies" name="hobbies" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen5" name="gen5" placeholder="idk" autoComplete="off"
                        required onChange={handleChange}
-                       value={formData.hobbies}/>
+                       value={formData.gen5}/>
 
 
                 <br/>
