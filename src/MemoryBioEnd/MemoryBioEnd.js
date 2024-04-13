@@ -63,7 +63,7 @@ function MemoryBioEnd() {
 
                 <label htmlFor="hobbies" className="hobbies">Текст заключения</label>
                 <br/>
-                <input type="text" id="TextStart" name="hobbies" placeholder="Хз че писать тут..."
+                <input type="text" id="TextStart" name="hobbies" placeholder="не знаю че писать тут..."
                        autoComplete="off"
                        value={formData.hobbies}
                        onChange={handleChange}
