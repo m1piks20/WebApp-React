@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MemoryBioEnd.css';
-
+import {useTranslation} from "react-i18next";
 
 
 
 function MemoryBioEnd() {
+    const {t, i18n} = useTranslation();
 
     const navigate = useNavigate();
 
@@ -52,20 +53,20 @@ function MemoryBioEnd() {
     return (
         <div className="container">
             <div className="header">
-                <h1 className="greeting">Добавление новой страницы памяти</h1>
+                <h1 className="greeting">{t("header.create_page")}</h1>
             </div>
             <hr style={{border: '1px solid #3d4754', width: '390px', height: '0px'}}/>
-            <p id="Bio">Биография. Заключение</p>
+            <p id="Bio">{t("bio.tom.frt")}</p>
 
             <br/>
 
             <form onSubmit={handleSubmit} id="dateForm">
 
-                <label htmlFor="hobbies" className="hobbies">Текст заключения</label>
+                <label htmlFor="hobbies" className="hobbies">{t("bio.text.frt")}</label>
                 <br/>
                 <div className="introductionTextContainer">
                     <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
-                              placeholder="Не знаю что писать тут..." autoComplete="off"
+                              placeholder={t("bio.text.placeholder.frt")} autoComplete="off"
                               value={formData.introductionText}
                               onChange={handleChange}
                     />
@@ -80,7 +81,7 @@ function MemoryBioEnd() {
 
 
                 <div className="upload-submit-container">
-                    <button type="submit">Перейти к написанию эпитафии</button>
+                    <button type="submit">{t("main.goto_epitaph")}</button>
                 </div>
 
             </form>

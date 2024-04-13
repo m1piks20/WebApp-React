@@ -3,35 +3,56 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PagesStyle.css';
 import defaultAvatar from './img/avatar.png';
+import {useTranslation} from "react-i18next";
 
-
-function fillDays() {
-    let options = '<option value="" disabled selected>День</option>';
-    for (let i = 1; i <= 31; i++) {
-        options += `<option className="white" value="${i}">${i}</option>`;
-    }
-    return options;
-}
-
-function fillMonths() {
-    let options = '<option value="" disabled selected>Месяц</option>';
-    const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-    months.forEach((month, index) => {
-        options += `<option className="white" value="${index + 1}">${month}</option>`;
-    });
-    return options;
-}
-
-function fillYears() {
-    let date = new Date().getFullYear()
-    let options = '<option value="" disabled selected>Год</option>';
-    for (let i = date; i >= 1724; i--) {
-        options += `<option className ="white" value="${i}">${i}</option>`;
-    }
-    return options;
-}
 
 function MemoryPage() {
+
+    const {t, i18n} = useTranslation();
+
+    function FillDays() {
+
+        var options = `<option value="" disabled selected>${t("placeholders.day")}</option>`;
+
+        for (let i = 1; i <= 31; i++) {
+            options += `<option className="white" value="${i}">${i}</option>`;
+        }
+        return options;
+    }
+
+    function FillMonths() {
+
+        let options = `<option value="" disabled selected>${t("placeholders.month")}</option>`;
+        const months = [
+            t("placeholders.jan"),
+            t("placeholders.feb"),
+            t("placeholders.mar"),
+            t("placeholders.apr"),
+            t("placeholders.may"),
+            t("placeholders.jun"),
+            t("placeholders.jul"),
+            t("placeholders.aug"),
+            t("placeholders.sep"),
+            t("placeholders.oct"),
+            t("placeholders.nov"),
+            t("placeholders.dec")
+        ]
+        months.forEach((month, index) => {
+            options += `<option className="white" value="${index + 1}">${month}</option>`;
+        });
+        return options;
+    }
+
+    function FillYears() {
+
+        let date = new Date().getFullYear()
+        let options = `<option value="" disabled selected>${t("placeholders.year")}</option>`;
+        for (let i = date; i >= 1724; i--) {
+            options += `<option className ="white" value="${i}">${i}</option>`;
+        }
+        return options;
+    }
+
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -65,12 +86,12 @@ function MemoryPage() {
     useEffect(() => {
         setFormData((prevData) => ({
             ...prevData,
-            birthDayOptions: fillDays(),
-            birthMonthOptions: fillMonths(),
-            birthYearOptions: fillYears(),
-            deathDayOptions: fillDays(),
-            deathMonthOptions: fillMonths(),
-            deathYearOptions: fillYears(),
+            birthDayOptions: FillDays(),
+            birthMonthOptions: FillMonths(),
+            birthYearOptions: FillYears(),
+            deathDayOptions: FillDays(),
+            deathMonthOptions: FillMonths(),
+            deathYearOptions: FillYears(),
         }));
     }, []);
 
@@ -111,15 +132,15 @@ function MemoryPage() {
     return (
         <div className="container">
             <div className="header">
-                <h1 className="greeting">Добавление новой страницы памяти</h1>
+                <h1 className="greeting">{t("header.create_page")}</h1>
             </div>
             <hr style={{ border: '1px solid #3d4754', width: '390px', height: '0px' }} />
             <form onSubmit={handleSubmit} id="dateForm">
 
                 <div className="upload-submit-container">
-                    <p className="PhotoPage">Главная фотография страницы</p>
+                    <p className="PhotoPage">{t("req_info.main_photo")}</p>
                     <label htmlFor="file-upload" className="custom-file-upload">
-                        Загрузить фото
+                        {t("req_info.upload_photo")}
                     </label>
                     {avatar ? (
                         <img src={avatar} alt="avatar" className="avatar"/>
@@ -131,13 +152,13 @@ function MemoryPage() {
                 </div>
 
 
-                <label htmlFor="fio" className="fio">ФИО</label>
+                <label htmlFor="fio" className="fio">{t("req_info.fio")}</label>
                 <br/>
-                <input className="fio" type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович"
+                <input className="fio" type="text" id="fio" name="fio" placeholder={t("placeholders.fio")}
                        autoComplete="off" required
                        onChange={handleChange} value={formData.fio}/>
                 <br/>
-                <label htmlFor="birthDay" className="birthDay">Дата рождения</label>
+                <label htmlFor="birthDay" className="birthDay">{t("req_info.birthDate")}</label>
                 <br/>
                 <select id="birthDay" name="birthDay" required className="days" autoComplete="off"
                         dangerouslySetInnerHTML={{__html: formData.birthDayOptions}} onChange={handleChange}>
@@ -150,7 +171,7 @@ function MemoryPage() {
                 </select>
                 <br/>
                 <br/>
-                <label htmlFor="deathDay" className="deathDay">Дата смерти</label>
+                <label htmlFor="deathDay" className="deathDay">{t("req_info.diedDate")}</label>
                 <br/>
                 <select id="deathDay" name="deathDay" required className="days" autoComplete="off"
                         dangerouslySetInnerHTML={{__html: formData.deathDayOptions}} onChange={handleChange}>
@@ -166,7 +187,7 @@ function MemoryPage() {
 
                 <div className="upload-submit-container">
 
-                    <button type="submit">Далее</button>
+                    <button type="submit">{t("main.next")}</button>
                 </div>
             </form>
             <div id="loadingBox" style={{display: isLoading ? 'block' : 'none'}}></div>

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  './PageStyle2.css';
+import {useTranslation} from "react-i18next";
 
 
 
 function MemoryPage2() {
+    const {t, i18n} = useTranslation();
 
     const navigate = useNavigate();
 
@@ -43,7 +45,7 @@ function MemoryPage2() {
     return (
         <div className="container">
             <div className="header">
-                <h1 className="greeting">Добавление новой страницы памяти</h1>
+                <h1 className="greeting">{t("header.create_page")}</h1>
             </div>
             <hr style={{ border: '1px solid #3d4754', width: '390px', height: '0px' }} />
 
@@ -51,36 +53,36 @@ function MemoryPage2() {
 
             <form onSubmit={handleSubmit} id="dateForm">
 
-                <label htmlFor="placeBirth" className="placeBirth">Место рождения</label>
+                <label htmlFor="placeBirth" className="placeBirth">{t("req_info.placeBirth")}</label>
                 <br/>
                 <input className="placeBirth" type="text" id="placeBirth" name="placeBirth"
-                       placeholder="Санкт-Петербург, Россия" autoComplete="off"
+                       placeholder={t("req_info.additional.placeBirth")} autoComplete="off"
                        required onChange={handleChange}
                        value={formData.placeBirth}/>
 
                 <br/>
 
-                <label htmlFor="placeDeath" className="placeDeath">Место смерти</label>
+                <label htmlFor="placeDeath" className="placeDeath">{t("req_info.placeDeath")}</label>
                 <br/>
                 <input className="placeDeath" type="text" id="placeDeath" name="placeDeath"
-                       placeholder="Балашиха, Россия" autoComplete="off"
+                       placeholder={t("req_info.additional.placeDeath")} autoComplete="off"
                        required onChange={handleChange}
                        value={formData.placeDeath}/>
 
                 <br/>
 
-                <label htmlFor="typeOfActivity" className="typeOfActivity">Род деятельности</label>
+                <label htmlFor="typeOfActivity" className="typeOfActivity">{t("req_info.work")}</label>
                 <br/>
                 <input className="typeOfActivity" type="text" id="typeOfActivity" name="typeOfActivity"
-                       placeholder="Актёр,  танцор, хореограф" autoComplete="off"
+                       placeholder={t("req_info.additional.work")} autoComplete="off"
                        required
                        onChange={handleChange}
                        value={formData.typeOfActivity}/>
                 <br/>
-                <label htmlFor="awards" className="awards">Награды, премии и достижения</label>
+                <label htmlFor="awards" className="awards">{t("req_info.awards")}</label>
                 <br/>
                 <input className="awards" type="text" id="awards" name="awards"
-                       placeholder="Заслуженный артист деревни Терелесово"
+                       placeholder={t("req_info.additional.awards")}
                        autoComplete="off"
                        required
                        onChange={handleChange}
@@ -88,10 +90,10 @@ function MemoryPage2() {
 
                 <br/>
 
-                <label htmlFor="hobbies" className="hobbies">Хобби и увлечения</label>
+                <label htmlFor="hobbies" className="hobbies">{t("req_info.hobbies")}</label>
                 <br/>
                 <input className="hobbies" type="text" id="hobbies" name="hobbies"
-                       placeholder="Плавание, игра на гитаре" autoComplete="off"
+                       placeholder={t("req_info.additional.hobbies")} autoComplete="off"
                        required
                        onChange={handleChange}
                        value={formData.hobbies}/>
@@ -101,7 +103,7 @@ function MemoryPage2() {
 
                 <div className="upload-submit-container">
 
-                    <button type="submit">Далее</button>
+                    <button type="submit">{t("main.next")}</button>
                 </div>
 
             </form>
