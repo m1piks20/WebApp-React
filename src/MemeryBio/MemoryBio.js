@@ -24,6 +24,7 @@ function MemoryBio() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        console.log(`Handling change for ${name} with value ${value}`); // Добавлено для отладки
         setFormData({ ...formData, [name]: value });
     };
     const handleSubmit = (event) => {
@@ -68,6 +69,7 @@ function MemoryBio() {
                 <div className="introductionTextContainer">
                     <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
                               placeholder={t("bio.text.placeholder.fst")} autoComplete="off"
+
                               value={formData.introductionText}
                               onChange={handleChange}
                     />
