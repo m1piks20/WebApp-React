@@ -64,7 +64,7 @@ function MainPageRegistr() {
 
             <hr className="hr-style"/>
 
-            <div className="container">
+            <div className="container2">
                 <div className="header">
                     <p className="greeting">Ваши страницы памяти</p>
                 </div>
