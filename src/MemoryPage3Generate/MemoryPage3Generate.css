@@ -47,7 +47,7 @@ body {
     padding: 10px 10px 10px 5px;
 }
 
-.fio, .birthDay, .birthMonth, .birthYear, .hobbies, .epitaffio{
+.birthDay, .birthMonth, .birthYear, .hobbies, .epitaffio{
     padding: 10px 20px 20px 10px;
     font-family: var(--font-family);
     font-weight: 700;
@@ -86,39 +86,6 @@ input[type="text"]{
     border: 1px solid #3d4754;
     margin: auto;
     display: block;
-}
-
-select{
-    border: 1px solid #3d4754;
-}
-
-.days{
-    color: gray;
-    padding-left: 5px;
-    margin-left: 9px;
-    border-radius: 10px;
-    width: 90px;
-    height: 40px;
-    background: #3d4754;
-}
-
-.month{
-    color: gray;
-    padding-left: 5px;
-    margin: 0 10px 0 10px;
-    border-radius: 10px;
-    width: 140px;
-    height: 40px;
-    background: #3d4754;
-}
-
-.year{
-    color: gray;
-    padding-left: 5px;
-    border-radius: 10px;
-    width: 98px;
-    height: 40px;
-    background: #3d4754;
 }
 
 .white{
@@ -169,27 +136,6 @@ input[type="file"] {
 }
 
 .custom-file-upload:hover {
-    background-color: rgb(0, 16, 87);
-}
-
-
-
-button{
-    color: #fff;
-    font-weight: 700;
-    margin-right: 15px;
-    float: right;
-    text-align: center;
-    border-radius: 12px;
-    width: 354px;
-    height: 38px;
-    background: #1a80e5;
-    border: 1px solid #1a80e5;
-
-    transition: background-color 0.2s linear;
-}
-
-button:hover{
     background-color: rgb(0, 16, 87);
 }
 

@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import './PagesStyle.css';
 import defaultAvatar from './img/avatar.png';
 
-function fillOptions(fillFunction) {
-    return fillFunction();
-}
 
 function fillDays() {
     let options = '<option value="" disabled selected>День</option>';
@@ -29,7 +26,7 @@ function fillYears() {
     let date = new Date().getFullYear()
     let options = '<option value="" disabled selected>Год</option>';
     for (let i = date; i >= 1900; i--) {
-        options += `<option className ="white" value="${i}">${i}</option>`;
+        options += `<option className ="bel" value="${i}">${i}</option>`;
     }
     return options;
 }
@@ -85,6 +82,7 @@ function MemoryPage() {
             alert('Год смерти не может быть меньше года рождения');
         } else {
             setFormData({ ...formData, [name]: value });
+            e.target.style.color = value ? '#fff' : '#293038'; // Изменение цвета текста
         }
     };
 
@@ -131,11 +129,11 @@ function MemoryPage() {
                     {/*<p>{selectedFile}</p>*/}
                 </div>
 
-                <br/>
-                <br/>
+
                 <label htmlFor="fio" className="fio">ФИО</label>
                 <br/>
-                <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович" autoComplete="off" required
+                <input className="fio" type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович"
+                       autoComplete="off" required
                        onChange={handleChange} value={formData.fio}/>
                 <br/>
                 <label htmlFor="birthDay" className="birthDay">Дата рождения</label>

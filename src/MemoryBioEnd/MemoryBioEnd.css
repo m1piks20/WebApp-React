@@ -39,25 +39,6 @@ body {
     margin-bottom: 10px;
 }
 
-button{
-    color: #fff;
-    font-weight: 700;
-    margin-bottom: 20px;
-    margin-right: 8.5px;
-    float: right;
-    text-align: center;
-    border-radius: 12px;
-    width: 356px;
-    height: 38px;
-    background: #1a80e5;
-    border: 1px solid #1a80e5;
-
-    transition: background-color 0.2s linear;
-}
-
-button:hover{
-    background-color: rgb(0, 16, 87);
-}
 
 #TextStart{
     position: relative;
