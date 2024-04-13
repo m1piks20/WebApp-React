@@ -1,30 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    position: absolute;
-    background: #121417;
-    font-family: sans-serif;
-    width: 390px;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-.header {
-    padding: 20px 20px 0;
-}
-
-.greeting {
-    font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
 #dateForm{
     padding: 10px 10px 10px 5px;
 }
@@ -37,7 +10,7 @@ textarea[class="epitaffioText"]{
     color: #fff;
     padding-left: 6px;
     padding-top: 6px;
-    margin-left: 100px;
+
     border-radius: 10px;
     width: 358px;
     height: 300px;
@@ -56,3 +29,12 @@ textarea[class="epitaffioText"]::placeholder {
     top: 6px;
 }
 
+.epitaffio,.epitaffioText{
+    padding: 10px 10px 8px 10px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 161%;
+    letter-spacing: -0.02em;
+    color: #fff;
+}

@@ -80,7 +80,7 @@ function MemoryBio3() {
                     />
 
                     <button className="neuro">
-                        <img className="ico" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
+                        <img className="ico" src="https://img.icons8.com/?size=50&id=61864&format=png" alt="Neuro"/>
                     </button>
 
                 </div>
