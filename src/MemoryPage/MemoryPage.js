@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PagesStyle.css';
 import defaultAvatar from './img/avatar.png';
+import {useTranslation} from "react-i18next";
 
 
 function fillDays() {
@@ -32,6 +33,7 @@ function fillYears() {
 }
 
 function MemoryPage() {
+    const {t, i18n} = useTranslation();
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -111,15 +113,15 @@ function MemoryPage() {
     return (
         <div className="container">
             <div className="header">
-                <h1 className="greeting">Добавление новой страницы памяти</h1>
+                <h1 className="greeting">{t("header.create_page")}</h1>
             </div>
             <hr style={{ border: '1px solid #3d4754', width: '390px', height: '0px' }} />
             <form onSubmit={handleSubmit} id="dateForm">
 
                 <div className="upload-submit-container">
-                    <p className="PhotoPage">Главная фотография страницы</p>
+                    <p className="PhotoPage">{t("req_info.main_photo")}</p>
                     <label htmlFor="file-upload" className="custom-file-upload">
-                        Загрузить фото
+                        {t("req_info.upload_photo")}
                     </label>
                     {avatar ? (
                         <img src={avatar} alt="avatar" className="avatar"/>
@@ -131,13 +133,13 @@ function MemoryPage() {
                 </div>
 
 
-                <label htmlFor="fio" className="fio">ФИО</label>
+                <label htmlFor="fio" className="fio">{t("req_info.fio")}</label>
                 <br/>
-                <input className="fio" type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович"
+                <input className="fio" type="text" id="fio" name="fio" placeholder={t("placeholders.fio")}
                        autoComplete="off" required
                        onChange={handleChange} value={formData.fio}/>
                 <br/>
-                <label htmlFor="birthDay" className="birthDay">Дата рождения</label>
+                <label htmlFor="birthDay" className="birthDay">{t("req_info.birthDate")}</label>
                 <br/>
                 <select id="birthDay" name="birthDay" required className="days" autoComplete="off"
                         dangerouslySetInnerHTML={{__html: formData.birthDayOptions}} onChange={handleChange}>
@@ -150,7 +152,7 @@ function MemoryPage() {
                 </select>
                 <br/>
                 <br/>
-                <label htmlFor="deathDay" className="deathDay">Дата смерти</label>
+                <label htmlFor="deathDay" className="deathDay">{t("req_info.diedDate")}</label>
                 <br/>
                 <select id="deathDay" name="deathDay" required className="days" autoComplete="off"
                         dangerouslySetInnerHTML={{__html: formData.deathDayOptions}} onChange={handleChange}>
@@ -166,7 +168,7 @@ function MemoryPage() {
 
                 <div className="upload-submit-container">
 
-                    <button type="submit">Далее</button>
+                    <button type="submit">{t("main.next")}</button>
                 </div>
             </form>
             <div id="loadingBox" style={{display: isLoading ? 'block' : 'none'}}></div>

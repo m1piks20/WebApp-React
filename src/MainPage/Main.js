@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Main.css'; // Подключаем CSS стили
 import { Link } from 'react-router-dom';
-
-
-
+import {useTranslation} from "react-i18next";
 
 function Main() {
+    const {t, i18n} = useTranslation();
 
 
     const [username, setUsername] = useState('');
@@ -17,13 +16,13 @@ function Main() {
     const getGreeting = () => {
         const hour = new Date().getHours();
         if (hour >= 4 && hour < 12) {
-            return 'Доброе утро';
+            return t("greetings.morn");
         } else if (hour >= 12 && hour < 18) {
-            return 'Добрый день';
+            return t("greetings.day");
         } else if (hour >= 18 && hour < 22) {
-            return 'Добрый вечер';
+            return t("greetings.even");
         } else {
-            return 'Доброй ночи';
+            return t("greetings.night");
         }
     };
 
@@ -64,8 +63,8 @@ function Main() {
                 <hr className="hr-style"/>
 
                 <div className="main">
-                    <p className="text">Вы ещё не добавляли страницы памяти</p>
-                    <Link to="/MemoryPage" className="btn-create">Создать новую страницу памяти</Link>
+                    <p className="text">{t("main.no_pages")}</p>
+                    <Link to="/MemoryPage" className="btn-create">{t("main.create_page")}</Link>
                 </div>
 
                 <div className="footer">

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MemoryBio.css';
-
+import {useTranslation} from "react-i18next";
 
 
 function MemoryBio() {
+    const {t, i18n} = useTranslation();
 
     const navigate = useNavigate();
 
@@ -44,29 +45,29 @@ function MemoryBio() {
     return (
         <div className="container">
             <div className="header">
-                <h1 className="greeting">Добавление новой страницы памяти</h1>
+                <h1 className="greeting">{t("header.create_page")}</h1>
             </div>
             <hr style={{ border: '1px solid #3d4754', width: '390px', height: '0px' }} />
-            <p id="Bio">Биография. Часть 1</p>
+            <p id="Bio">{t("bio.tom.fst")}</p>
 
             <br/>
 
             <form onSubmit={handleSubmit} id="dateForm">
 
-                <label htmlFor="introduction" className="introduction">Заголовок вступления</label>
+                <label htmlFor="introduction" className="introduction">{t("bio.header.fst")}</label>
                 <br/>
-                <input className="introduction" type="text" id="introduction" name="introduction" placeholder="Давным-давно на полянке..."
+                <input className="introduction" type="text" id="introduction" name="introduction" placeholder={t("bio.header.placeholder.fst")}
                        value={formData.introduction}
                        onChange={handleChange}
                        autoComplete="off"/>
 
                 <br/>
 
-                <label htmlFor="introductionText" className="introductionText">Текст вступления</label>
+                <label htmlFor="introductionText" className="introductionText">{t("bio.text.fst")}</label>
                 <br/>
                 <div className="introductionTextContainer">
                     <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
-                              placeholder="Хз че писать тут..." autoComplete="off"
+                              placeholder={t("bio.text.placeholder.fst")} autoComplete="off"
                               value={formData.introductionText}
                               onChange={handleChange}
                     />
@@ -82,8 +83,8 @@ function MemoryBio() {
                 <br/>
 
                 <div className="upload-submit-container">
-                    <button type="submit">Далее</button>
-                    <button>Перейти к написанию эпитафии</button>
+                    <button type="submit">{t("main.next")}</button>
+                    <button>{t("main.goto_epitaph")}</button>
                 </div>
 
             </form>

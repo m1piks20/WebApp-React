@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MemoryPage3Generate.css';
+import {useTranslation} from "react-i18next";
 
 
 function MemoryPage3Generate() {
+    const {t, i18n} = useTranslation();
 
     const navigate = useNavigate();
 
@@ -53,7 +55,7 @@ function MemoryPage3Generate() {
 
                 <label htmlFor="gen1" className="gen">IDK</label>
                 <br/>
-                <input className="gen" type="text" id="gen1" name="gen1" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen1" name="gen1" placeholder={t("gpt.answer")} autoComplete="off"
                        required onChange={handleChange}
                        value={formData.gen1}/>
 
@@ -61,7 +63,7 @@ function MemoryPage3Generate() {
 
                 <label htmlFor="gen2" className="gen">IDK</label>
                 <br/>
-                <input className="gen" type="text" id="gen2" name="gen2" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen2" name="gen2" placeholder={t("gpt.answer")} autoComplete="off"
                        required onChange={handleChange}
                        value={formData.gen2}/>
 
@@ -69,7 +71,7 @@ function MemoryPage3Generate() {
 
                 <label htmlFor="gen3" className="gen">IDK</label>
                 <br/>
-                <input className="gen" type="text" id="gen3" name="gen3" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen3" name="gen3" placeholder={t("gpt.answer")} autoComplete="off"
                        required onChange={handleChange}
                        value={formData.gen3}/>
 
@@ -77,7 +79,7 @@ function MemoryPage3Generate() {
 
                 <label htmlFor="gen4" className="gen">IDK</label>
                 <br/>
-                <input className="gen" type="text" id="gen4" name="gen4" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen4" name="gen4" placeholder={t("gpt.answer")} autoComplete="off"
                        required onChange={handleChange}
                        value={formData.gen4}/>
 
@@ -85,7 +87,7 @@ function MemoryPage3Generate() {
 
                 <label htmlFor="gen5" className="gen">IDK</label>
                 <br/>
-                <input className="gen" type="text" id="gen5" name="gen5" placeholder="idk" autoComplete="off"
+                <input className="gen" type="text" id="gen5" name="gen5" placeholder={t("gpt.answer")} autoComplete="off"
                        required onChange={handleChange}
                        value={formData.gen5}/>
 
