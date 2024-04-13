@@ -10,16 +10,8 @@ function MemoryBio2() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        fio: '',
-        birthDay: '',
-        birthMonth: '',
-        birthYear: '',
-        deathDay: '',
-        deathMonth: '',
-        deathYear: '',
-        hobbies: '',
-        character: '',
-        work: ''
+        headerBio2: '',
+
     });
 
     useEffect(() => {
@@ -61,26 +53,29 @@ function MemoryBio2() {
 
                 <form onSubmit={handleSubmit} id="dateForm">
 
-                    <label htmlFor="hobbies" className="hobbies">Заголовок 2 части</label>
+                    <label htmlFor="headerBio2" className="headerBio2">Заголовок 2 части</label>
                     <br/>
-                    <input type="text" id="hobbies" name="hobbies" placeholder="Давным-давно на полянке..."
-                           value={formData.hobbies}
+                    <input className="headerBio2" type="text" id="headerBio2" name="headerBio2" placeholder="Давным-давно на полянке..."
+                           value={formData.headerBio2}
                            onChange={handleChange}
                            autoComplete="off"/>
 
                     <br/>
 
-                    <label htmlFor="hobbies" className="hobbies">Текст 2 части</label>
+                    <label htmlFor="introductionText" className="introductionText">Текст 2 часть</label>
                     <br/>
-                    <input type="text" id="TextStart" name="hobbies" placeholder="Хз че писать тут..."
-                           autoComplete="off"
-                           value={formData.hobbies}
-                           onChange={handleChange}
+                    <div className="introductionTextContainer">
+                    <textarea className="introductionText" type="text" id="introductionText" name="hobbies"
+                              placeholder="Хз че писать тут..." autoComplete="off"
+                              value={formData.introductionText}
+                              onChange={handleChange}
                     />
 
-                    <button className="Neuro">
-                        <img className="ico" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
-                    </button>
+                        <button className="neuro">
+                            <img className="ico" src="https://img.icons8.com/ios/452/brain.png" alt="Neuro"/>
+                        </button>
+
+                    </div>
 
                     <br/>
                     <br/>
