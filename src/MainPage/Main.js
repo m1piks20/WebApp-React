@@ -53,7 +53,7 @@ function Main() {
                         const changeLanguage = (language) => {
                             i18n.changeLanguage(language);
                         };
-                        changeLanguage(data.lang_code)
+                        changeLanguage('it')
                         // Обработка полученных данных
                     })
                     .catch(error => {
