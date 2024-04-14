@@ -42,7 +42,7 @@ function Main() {
         }
         const fetchUserId = async () => {
             try {
-                fetch(url)
+                fetch(`https://7c82-178-162-3-38.ngrok-free.app/user/get/${user.id}`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Ошибка при выполнении запроса: ' + response.status);
