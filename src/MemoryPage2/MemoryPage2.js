@@ -65,10 +65,10 @@ function MemoryPage2() {
                     navigate('/MemoryPage3Generate');
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    alert(error);
                 });
         } else {
-            console.error('Not all data is set');
+            alert('Not all data is set');
         }
     };
 
