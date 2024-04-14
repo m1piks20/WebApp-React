@@ -47,13 +47,14 @@ function Main() {
                         if (!response.ok) {
                             throw new Error('Ошибка при выполнении запроса: ' + response.status);
                         }
+                        return response.json()
                     })
                     .then(data => {
                         console.log(data);
                         const changeLanguage = (language) => {
                             i18n.changeLanguage(language);
                         };
-                        changeLanguage('it')
+                        changeLanguage(data.lang_code)
                         // Обработка полученных данных
                     })
                     .catch(error => {
