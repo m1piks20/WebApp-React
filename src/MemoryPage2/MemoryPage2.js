@@ -51,6 +51,7 @@ function MemoryPage2() {
 
         // Проверка, что все данные установлены
         if (main_data && main_data.fio && main_data.birthDate && main_data.deathDate && additionalData.placeBirth && additionalData.placeDeath && additionalData.typeOfActivity && additionalData.awards && additionalData.hobbies) {
+            alert('Sending request...'); // Добавлено для отладки
             axios.post('http://176.123.162.216:8101/question', {
                 langCode: i18n.language, // предполагая, что i18n.language содержит текущий язык
                 fio: main_data.fio, // замените на соответствующее значение
@@ -63,12 +64,13 @@ function MemoryPage2() {
                 hobby: additionalData.hobbies
             })
                 .then(response => {
-                    console.log(response.data);
+                    alert(response.data); // Добавлено для отладки
                     navigate('/MemoryPage3Generate');
                 })
                 .catch(error => {
                     alert(error);
                 });
+            alert('Request sent.'); // Добавлено для отладки
         } else {
             alert('Not all data is set');
         }
