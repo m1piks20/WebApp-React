@@ -15,7 +15,7 @@ function Main() {
 
         axios.get('https://7c82-178-162-3-38.ngrok-free.app/user/get/5560007118')
             .then((response) => {
-                i18n.changeLanguage(response.data.lang_code);
+                i18n.changeLanguage(response.data.json().lang_code);
             })
             .catch((error) => {
                 console.error(error);
