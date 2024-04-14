@@ -42,11 +42,24 @@ function Main() {
         }
         const fetchUserId = async () => {
             try {
-                const response = await axios.get(`https://7c82-178-162-3-38.ngrok-free.app/user/get/${user_id}`);
-                const changeLanguage = (language) => {
-                    i18n.changeLanguage(language);
-                };
-                changeLanguage(response.data.lang_code)
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Ошибка при выполнении запроса: ' + response.status);
+                        }
+                    })
+                    .then(data => {
+                        console.log(data);
+                        const changeLanguage = (language) => {
+                            i18n.changeLanguage(language);
+                        };
+                        changeLanguage(data.lang_code)
+                        // Обработка полученных данных
+                    })
+                    .catch(error => {
+                        console.error('Ошибка:', error);
+                    });
+
             } catch (error) {
                 console.error('Ошибка при получении информации о пользователе:', error);
             }
