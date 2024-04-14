@@ -9,7 +9,6 @@ function Main() {
 
 
     const [username, setUsername] = useState('');
-    const [user_id, setUserID] = useState('');
 
     useEffect(() => {
         updateUsername();
@@ -37,25 +36,23 @@ function Main() {
         }
     };
 
-    const getData = async (url) => {
+    const [userData, setUserData] = useState(null);
+
+    const getUserData = async () => {
         try {
-            const response = await axios.get(url);
-            return response.data;
+            const userId = '5560007118';
+            const response = await axios.get(`https://7c82-178-162-3-38.ngrok-free.app/user/get/${userId}`);
+            setUserData(response.data);
         } catch (error) {
-            console.error(`Error occurred while fetching data from ${url}:`, error);
-            return null;
+            console.error('Ошибка:', error);
         }
     };
 
-    const changeLanguage = (language) => {
-        i18n.changeLanguage(language);
-    };
+    const updateLanguage = (lang) => {
+        i18n.changeLanguage(lang.lang_code);
+    }
 
-    getData("https://7c82-178-162-3-38.ngrok-free.app/user/get/677623123").then(
-        (data) => {
-            changeLanguage(data.lang_code)
-        }
-    );
+    updateLanguage(getUserData())
 
 
     return (
