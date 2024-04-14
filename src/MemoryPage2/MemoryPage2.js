@@ -32,26 +32,29 @@ function MemoryPage2() {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-            setFormData({
-                ...formData,
-                [event.target.name]: event.target.value
-            });
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
 
-            let additionalData = {
-                placeBirth: formData.placeBirth,
-                placeDeath: formData.placeDeath,
-                typeOfActivity: formData.typeOfActivity,
-                awards: formData.awards,
-                hobbies: formData.hobbies
-            }
+        let additionalData = {
+            placeBirth: formData.placeBirth,
+            placeDeath: formData.placeDeath,
+            typeOfActivity: formData.typeOfActivity,
+            awards: formData.awards,
+            hobbies: formData.hobbies
+        }
 
-            localStorage.setItem('additionalData', JSON.stringify(additionalData));
+        localStorage.setItem('additionalData', JSON.stringify(additionalData));
+
+        // Получение данных из localStorage
+        let main_data = JSON.parse(localStorage.getItem('main_data'));
 
         axios.post('http://176.123.162.216:8101/question', {
             langCode: i18n.language, // предполагая, что i18n.language содержит текущий язык
-            fio: formData.fio, // замените на соответствующее значение
-            dateOfBirth: formData.birthDate.toISOString().split('T')[0], // замените на соответствующее значение
-            dateOfdied: formData.deathDate.toISOString().split('T')[0], // замените на соответствующее значение
+            fio: main_data.fio, // замените на соответствующее значение
+            dateOfBirth: main_data.birthDate.toISOString().split('T')[0], // замените на соответствующее значение
+            dateOfdied: main_data.deathDate.toISOString().split('T')[0], // замените на соответствующее значение
             placeOfBirth: additionalData.placeBirth,
             placeOfDied: additionalData.placeDeath,
             work: additionalData.typeOfActivity,
