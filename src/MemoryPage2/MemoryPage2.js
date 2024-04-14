@@ -6,6 +6,7 @@ import axios from "axios";
 
 function MemoryPage2() {
     const {t, i18n} = useTranslation();
+
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -16,6 +17,12 @@ function MemoryPage2() {
         hobbies: ''
     });
 
+    useEffect(() => {
+        setFormData((prevData) => ({
+            ...prevData,
+        }));
+    }, []);
+
     const handleChange = (e) => {
         const {name, value} = e.target;
         setFormData({...formData, [name]: value});
@@ -23,6 +30,11 @@ function MemoryPage2() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
+
         let additionalData = {
             placeBirth: formData.placeBirth,
             placeDeath: formData.placeDeath,
@@ -30,12 +42,10 @@ function MemoryPage2() {
             awards: formData.awards,
             hobbies: formData.hobbies
         }
-        localStorage.setItem('additionalData', JSON.stringify(additionalData));
-    };
 
-    useEffect(() => {
+        localStorage.setItem('additionalData', JSON.stringify(additionalData));
+
         let main_data = JSON.parse(localStorage.getItem('main_data'));
-        let additionalData = JSON.parse(localStorage.getItem('additionalData'));
 
         if (main_data && main_data.fio && main_data.birthDate && main_data.deathDate && additionalData.placeBirth && additionalData.placeDeath && additionalData.typeOfActivity && additionalData.awards && additionalData.hobbies) {
             axios.post('http://176.123.162.216:8101/question', {
@@ -60,9 +70,9 @@ function MemoryPage2() {
                     console.log('Request sent.');
                 });
         } else {
-            console.log('Not all data is set');
+            alert('Not all data is set');
         }
-    }, [formData]);
+    };
 
 
     return (
