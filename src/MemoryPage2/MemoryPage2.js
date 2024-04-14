@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  './PageStyle2.css';
 import {useTranslation} from "react-i18next";
+import axios from "axios";
 
 
 
@@ -46,12 +47,26 @@ function MemoryPage2() {
 
             localStorage.setItem('additionalData', JSON.stringify(additionalData));
 
-
-
-
-
-        navigate('/MemoryPage3Generate');
+        axios.post('http://176.123.162.216:8101/question', {
+            langCode: i18n.language, // предполагая, что i18n.language содержит текущий язык
+            fio: formData.fio, // замените на соответствующее значение
+            dateOfBirth: formData.birthDate.toISOString().split('T')[0], // замените на соответствующее значение
+            dateOfdied: formData.deathDate.toISOString().split('T')[0], // замените на соответствующее значение
+            placeOfBirth: additionalData.placeBirth,
+            placeOfDied: additionalData.placeDeath,
+            work: additionalData.typeOfActivity,
+            award: additionalData.awards,
+            hobby: additionalData.hobbies
+        })
+            .then(response => {
+                console.log(response.data);
+                navigate('/MemoryPage3Generate');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     };
+
 
     return (
         <div className="container">
