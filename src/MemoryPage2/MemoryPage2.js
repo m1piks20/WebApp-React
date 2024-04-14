@@ -25,6 +25,10 @@ function MemoryPage2() {
         }));
     }, []);
 
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormData({...formData, [name]: value});
+    };
     const handleSubmit = (event) => {
         event.preventDefault();
         setFormData({
