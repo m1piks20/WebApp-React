@@ -40,7 +40,6 @@ function Main() {
         if (user) {
             setUserID(user.id);
         }
-
         const fetchUserId = async () => {
             try {
                 const response = await axios.get(`https://7c82-178-162-3-38.ngrok-free.app/user/get/${user_id}`);
@@ -48,7 +47,9 @@ function Main() {
             } catch (error) {
                 console.error('Ошибка при получении информации о пользователе:', error);
             }
-        };
+
+        }
+    });
 
     return (
             <div className="container">
