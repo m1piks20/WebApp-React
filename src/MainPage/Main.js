@@ -36,6 +36,7 @@ function Main() {
 
         const fetchUserId = async () => {
             try {
+                await  i18n.changeLanguage("en");
                 const response = await axios.get(`https://7c82-178-162-3-38.ngrok-free.app/user/get/${user_id}`);
                     await i18n.changeLanguage(response.data.lang_code);
             } catch (error) {
