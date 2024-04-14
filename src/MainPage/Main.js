@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './Main.css'; // Подключаем CSS стили
 import { Link } from 'react-router-dom';
 import {useTranslation} from "react-i18next";
+import axios from 'axios';
 
 function Main() {
     const {t, i18n} = useTranslation();
 
 
     const [username, setUsername] = useState('');
+    const [user_id, setUserID] = useState('');
 
     useEffect(() => {
         updateUsername(); // Вызываем функцию обновления имени пользователя при загрузке компонента
@@ -25,6 +27,21 @@ function Main() {
             return t("greetings.night");
         }
     };
+
+    useEffect(() => {
+        let user = window.Telegram?.WebApp?.initDataUnsafe?.user;
+        if (user) {
+            setUserID(user.id);
+        }
+
+        const fetchUserId = async () => {
+            try {
+                const response = await axios.get(`https://7c82-178-162-3-38.ngrok-free.app/user/get/${user_id}`);
+                    await i18n.changeLanguage(response.data.lang_code);
+            } catch (error) {
+                console.error('Ошибка при получении информации о пользователе:', error);
+            }
+        };
 
     const updateUsername = () => {
         const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
