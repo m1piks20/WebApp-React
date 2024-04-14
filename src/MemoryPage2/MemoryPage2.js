@@ -47,27 +47,29 @@ function MemoryPage2() {
 
         localStorage.setItem('additionalData', JSON.stringify(additionalData));
 
-        // Получение данных из localStorage
-        let main_data = JSON.parse(localStorage.getItem('main_data'));
-
-        axios.post('http://176.123.162.216:8101/question', {
-            langCode: i18n.language, // предполагая, что i18n.language содержит текущий язык
-            fio: main_data.fio, // замените на соответствующее значение
-            dateOfBirth: main_data.birthDate.toISOString().split('T')[0], // замените на соответствующее значение
-            dateOfdied: main_data.deathDate.toISOString().split('T')[0], // замените на соответствующее значение
-            placeOfBirth: additionalData.placeBirth,
-            placeOfDied: additionalData.placeDeath,
-            work: additionalData.typeOfActivity,
-            award: additionalData.awards,
-            hobby: additionalData.hobbies
-        })
-            .then(response => {
-                console.log(response.data);
-                navigate('/MemoryPage3Generate');
+        // Проверка, что все данные установлены
+        if (formData.fio && formData.birthDate && formData.deathDate && additionalData.placeBirth && additionalData.placeDeath && additionalData.typeOfActivity && additionalData.awards && additionalData.hobbies) {
+            axios.post('http://176.123.162.216:8101/question', {
+                langCode: i18n.language, // предполагая, что i18n.language содержит текущий язык
+                fio: formData.fio, // замените на соответствующее значение
+                dateOfBirth: formData.birthDate.toISOString().split('T')[0], // замените на соответствующее значение
+                dateOfdied: formData.deathDate.toISOString().split('T')[0], // замените на соответствующее значение
+                placeOfBirth: additionalData.placeBirth,
+                placeOfDied: additionalData.placeDeath,
+                work: additionalData.typeOfActivity,
+                award: additionalData.awards,
+                hobby: additionalData.hobbies
             })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                .then(response => {
+                    console.log(response.data);
+                    navigate('/MemoryPage3Generate');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        } else {
+            console.error('Not all data is set');
+        }
     };
 
 
