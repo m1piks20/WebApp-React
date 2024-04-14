@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-//import Main from './MainPage/Main';
-import MainPageRegistry from './MainPageRegistr/MainPageRegistr';
+import Main from './MainPage/Main';
+// import MainPageRegistry from './MainPageRegistr/MainPageRegistr';
 import MemoryPage from './MemoryPage/MemoryPage';
 import AddedEpitaphs from './AddedEpitaphs/AddedEpitaphs';
 import MemoryPage2 from './MemoryPage2/MemoryPage2';
@@ -15,7 +15,7 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<MainPageRegistry />} />
+                <Route path="/" element={<Main />} />
                 <Route path="/MemoryPage" element={<MemoryPage />} />
                 <Route path="/AddedEpitaphs" element={<AddedEpitaphs />} />
                 <Route path="/MemoryPage2" element={<MemoryPage2 />} />
