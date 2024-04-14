@@ -63,9 +63,17 @@ function MemoryPage() {
             [event.target.name]: event.target.value
         });
 
-        // Ваш код обработки формы
-        // ...
-        // Переход на страницу MemoryPage2
+
+        let main_data = {
+            fio: formData.fio,
+            birthDay: formData.birthDay,
+            birthMonth: formData.birthMonth,
+            birthDate: new Date(formData.birthYear, Number(formData.birthMonth) - 1, formData.birthDay),
+            deathDate: new Date(formData.deathYear, Number(formData.deathMonth) - 1, formData.deathDay),
+        }
+
+        localStorage.setItem('main_data', JSON.stringify(main_data));
+
         navigate('/MemoryPage2');
     };
 

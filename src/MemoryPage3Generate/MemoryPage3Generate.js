@@ -10,7 +10,7 @@ function MemoryPage3Generate() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        gen1: '',
+        gen1: localStorage.getItem("additionalData"),
         gen2: '',
         gen3: '',
         gen4: '',
@@ -45,7 +45,7 @@ function MemoryPage3Generate() {
     return (
         <div className="container">
             <div className="header">
-                <h1 className="greeting">Добавление новой страницы памяти</h1>
+                <h1 className="greeting">{t("header.create_page")}</h1>
             </div>
             <hr style={{ border: '1px solid #3d4754', width: '390px', height: '0px' }} />
 

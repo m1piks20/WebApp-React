@@ -11,18 +11,8 @@ function Main() {
     const [username, setUsername] = useState('');
 
     useEffect(() => {
-        // updateUsername();
-
-        axios.get('https://7c82-178-162-3-38.ngrok-free.app/user/get/5560007118')
-            .then((response) => {
-                i18n.changeLanguage(response.data);
-                setUsername(response.data)
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-        // Вызываем функцию обновления имени пользователя при загрузке компонента
-    }, []);
+        updateUsername()
+    });
 
     const getGreeting = () => {
         const hour = new Date().getHours();

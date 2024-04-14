@@ -36,9 +36,20 @@ function MemoryPage2() {
                 [event.target.name]: event.target.value
             });
 
-        // Ваш код обработки формы
-        // ...
-        // Переход на страницу MemoryPage3
+            let additionalData = {
+                placeBirth: formData.placeBirth,
+                placeDeath: formData.placeDeath,
+                typeOfActivity: formData.typeOfActivity,
+                awards: formData.awards,
+                hobbies: formData.hobbies
+            }
+
+            localStorage.setItem('additionalData', JSON.stringify(additionalData));
+
+
+
+
+
         navigate('/MemoryPage3Generate');
     };
 
