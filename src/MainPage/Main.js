@@ -37,21 +37,15 @@ function Main() {
 
     const [userData, setUserData] = useState(null);
 
-    const getUserData = async () => {
-        try {
-            const userId = '5560007118';
-            const response = await axios.get(`https://7c82-178-162-3-38.ngrok-free.app/user/get/${userId}`);
-            setUserData(response.data);
-        } catch (error) {
-            console.error('Ошибка:', error);
-        }
-    };
-
-    const updateLanguage = (lang) => {
-        i18n.changeLanguage(lang.lang_code);
-    }
-
-    updateLanguage(getUserData())
+    useEffect(() => {
+        axios.get('https://7c82-178-162-3-38.ngrok-free.app/user/get/5560007118')
+            .then((response) => {
+                i18n.changeLanguage(response.data.lang_code);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    });
 
 
     return (
