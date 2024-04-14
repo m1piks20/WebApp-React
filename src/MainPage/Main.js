@@ -11,11 +11,12 @@ function Main() {
     const [username, setUsername] = useState('');
 
     useEffect(() => {
-        updateUsername();
+        // updateUsername();
 
         axios.get('https://7c82-178-162-3-38.ngrok-free.app/user/get/5560007118')
             .then((response) => {
-                i18n.changeLanguage(response.data.json().lang_code);
+                i18n.changeLanguage(response.data);
+                setUsername(response.data)
             })
             .catch((error) => {
                 console.error(error);
@@ -41,7 +42,8 @@ function Main() {
         if (user) {
             setUsername(`${user.first_name} ${user.last_name}`);
         }
-    };
+    }
+ //    // };*/
 
     const [userData, setUserData] = useState(null);
 
