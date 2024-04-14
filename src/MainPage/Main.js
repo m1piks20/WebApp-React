@@ -40,6 +40,10 @@ function Main() {
         if (user) {
             setUserID(user.id);
         }
+        const changeLanguage = (language) => {
+            i18n.changeLanguage(language);
+        };
+        changeLanguage("en")
         const fetchUserId = async () => {
             try {
                 const response = await axios.get(`https://7c82-178-162-3-38.ngrok-free.app/user/get/${user_id}`);
