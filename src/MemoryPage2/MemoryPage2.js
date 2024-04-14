@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import  './PageStyle2.css';
+import React, {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
+import './PageStyle2.css';
 import {useTranslation} from "react-i18next";
 import axios from "axios";
-
 
 
 function MemoryPage2() {
@@ -26,10 +25,6 @@ function MemoryPage2() {
         }));
     }, []);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
     const handleSubmit = (event) => {
         event.preventDefault();
         setFormData({
@@ -47,13 +42,16 @@ function MemoryPage2() {
 
         localStorage.setItem('additionalData', JSON.stringify(additionalData));
 
+        // Получение данных из localStorage
+        let main_data = JSON.parse(localStorage.getItem('main_data'));
+
         // Проверка, что все данные установлены
-        if (formData.fio && formData.birthDate && formData.deathDate && additionalData.placeBirth && additionalData.placeDeath && additionalData.typeOfActivity && additionalData.awards && additionalData.hobbies) {
+        if (main_data && main_data.fio && main_data.birthDate && main_data.deathDate && additionalData.placeBirth && additionalData.placeDeath && additionalData.typeOfActivity && additionalData.awards && additionalData.hobbies) {
             axios.post('http://176.123.162.216:8101/question', {
                 langCode: i18n.language, // предполагая, что i18n.language содержит текущий язык
-                fio: formData.fio, // замените на соответствующее значение
-                dateOfBirth: formData.birthDate.toISOString().split('T')[0], // замените на соответствующее значение
-                dateOfdied: formData.deathDate.toISOString().split('T')[0], // замените на соответствующее значение
+                fio: main_data.fio, // замените на соответствующее значение
+                dateOfBirth: main_data.birthDate.toISOString().split('T')[0], // замените на соответствующее значение
+                dateOfdied: main_data.deathDate.toISOString().split('T')[0], // замените на соответствующее значение
                 placeOfBirth: additionalData.placeBirth,
                 placeOfDied: additionalData.placeDeath,
                 work: additionalData.typeOfActivity,
@@ -78,7 +76,7 @@ function MemoryPage2() {
             <div className="header">
                 <h1 className="greeting">{t("header.create_page")}</h1>
             </div>
-            <hr style={{ border: '1px solid #3d4754', width: '390px', height: '0px' }} />
+            <hr style={{border: '1px solid #3d4754', width: '390px', height: '0px'}}/>
 
             <br/>
 
