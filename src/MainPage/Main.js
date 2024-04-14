@@ -47,8 +47,10 @@ function Main() {
         const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
         if (user) {
             setUsername(`${user.first_name} ${user.last_name}`);
-
-            i18n.changeLanguage('en');
+            const changeLanguage = (language) => {
+                i18n.changeLanguage(language);
+            };
+            changeLanguage("en");
         }
     };
 
