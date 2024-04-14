@@ -4,10 +4,8 @@ import './PageStyle2.css';
 import {useTranslation} from "react-i18next";
 import axios from "axios";
 
-
 function MemoryPage2() {
     const {t, i18n} = useTranslation();
-
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -18,24 +16,13 @@ function MemoryPage2() {
         hobbies: ''
     });
 
-    useEffect(() => {
-        setFormData((prevData) => ({
-            ...prevData,
-
-        }));
-    }, []);
-
     const handleChange = (e) => {
         const {name, value} = e.target;
         setFormData({...formData, [name]: value});
     };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value
-        });
-
         let additionalData = {
             placeBirth: formData.placeBirth,
             placeDeath: formData.placeDeath,
@@ -43,20 +30,19 @@ function MemoryPage2() {
             awards: formData.awards,
             hobbies: formData.hobbies
         }
-
         localStorage.setItem('additionalData', JSON.stringify(additionalData));
+    };
 
-        // Получение данных из localStorage
+    useEffect(() => {
         let main_data = JSON.parse(localStorage.getItem('main_data'));
+        let additionalData = JSON.parse(localStorage.getItem('additionalData'));
 
-        // Проверка, что все данные установлены
         if (main_data && main_data.fio && main_data.birthDate && main_data.deathDate && additionalData.placeBirth && additionalData.placeDeath && additionalData.typeOfActivity && additionalData.awards && additionalData.hobbies) {
-             // Добавлено для отладки
             axios.post('http://176.123.162.216:8101/question', {
-                langCode: i18n.language, // предполагая, что i18n.language содержит текущий язык
-                fio: main_data.fio, // замените на соответствующее значение
-                dateOfBirth: main_data.birthDate.toISOString().split('T')[0], // замените на соответствующее значение
-                dateOfdied: main_data.deathDate.toISOString().split('T')[0], // замените на соответствующее значение
+                langCode: i18n.language,
+                fio: main_data.fio,
+                dateOfBirth: main_data.birthDate.toISOString().split('T')[0],
+                dateOfdied: main_data.deathDate.toISOString().split('T')[0],
                 placeOfBirth: additionalData.placeBirth,
                 placeOfDied: additionalData.placeDeath,
                 work: additionalData.typeOfActivity,
@@ -64,17 +50,19 @@ function MemoryPage2() {
                 hobby: additionalData.hobbies
             })
                 .then(response => {
-                    alert(response.data); // Добавлено для отладки
+                    console.log(response.data);
                     navigate('/MemoryPage3Generate');
                 })
                 .catch(error => {
-                    alert(error);
+                    console.error('Error:', error);
+                })
+                .finally(() => {
+                    console.log('Request sent.');
                 });
-            alert('Request sent.'); // Добавлено для отладки
         } else {
-            alert('Not all data is set');
+            console.log('Not all data is set');
         }
-    };
+    }, [formData]);
 
 
     return (
